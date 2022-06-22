@@ -1,0 +1,210 @@
+{
+    "name": "SistemaTomaDecisiones",
+    "version": "1.0",
+    "author": "MartaM",
+    "url": "https://github.com/aacgood/Cortex-Analyzers",
+    "license": "AGPL-V3",
+    "description": "Responder que devuelve los COA ",
+    "dataTypeList": ["thehive:alert"],
+    "command": "SistemaTomaDecision/sistema_toma_decision_v1.py",
+    "baseConfig": "SistemaTomaDecision",
+    "configurationItems": [
+      {
+        "name": "localizacion",
+        "description": "localizacion en la que se guardara el archivo con la info",
+        "type": "string",
+        "multi": false,
+        "required": true
+      },
+      {
+        "name": "lista_de_COA",
+        "description": "localizacion del json con los COAs",
+        "type": "string",
+        "multi": false,
+        "required": true
+      },
+      {
+      	"name": "localizacion_css",
+      	"description": "localizacion del archivo css para el pdf que se genera",
+      	"type": "string",
+      	"multi": false,
+      	"required": false,
+      	"defaultValue": "/home/martam/Desktop/analyzers/Cortex-Analyzers/responders/SistemaTomaDecision/tomadecision.css"
+      },
+      {
+      	"name": "algoritmo",
+      	"description": "1-formula base, 2-Impacto, 3-Tiempo, 4-Complejidad, 5-Esfuerzo, 6-Coste, 7-Severidad alerta",
+      	"type": "number",
+      	"multi": false,
+      	"required": true,
+      	"defaultValue": 1
+      },
+      {
+      	"name": "TheHive_instance",
+      	"description": "URL de TheHive",
+      	"type": "string",
+      	"multi": false,
+      	"required": false
+      },
+      {
+      	"name": "TheHive_API_key",
+      	"description": "API key de TheHive",
+      	"type": "string",
+      	"multi": false,
+      	"required": false
+      }
+     ],
+    "COAs": [
+        {
+            "name": "COA1-Notificar",
+            "descripcion": "Notificar al administrador del ataque",
+            "keywords": ["notificar","pasiva"],
+            "coste": 0,
+            "esfuerzo": 1,
+            "tiempo": 5,
+            "complejidad": 0,
+            "impacto": 0
+        },
+        {
+            "name": "COA2-Registro logs",
+            "descripcion": "Registrar en bases de datos de incidencias o ficheros de logs",
+            "keywords": ["registrar","pasiva","bbdd","log"],
+            "coste": 0,
+            "esfuerzo": 2,
+            "tiempo": 10,
+            "complejidad": 0,
+            "impacto": 0
+        },
+	{
+            "name": "COA3-Herramientas de analisis adicionales",
+            "descripcion": "Habilitar herramientas de analisis adicionales",
+            "keywords": ["analisis","pasiva","proactiva","recuperacion"],
+            "coste": 2,
+            "esfuerzo": 2,
+            "tiempo": 60,
+            "complejidad": 2,
+            "impacto": 2
+        },
+        {
+            "name": "COA4-Backups",
+            "descripcion": "Hacer backups de archivos",
+            "keywords": ["backup","proactiva","recuperacion"],
+            "coste": 2,
+            "esfuerzo": 1,
+            "tiempo": 100,
+            "complejidad": 1,
+            "impacto": 0
+        },
+        {
+            "name": "COA5-Denegar acceso archivos",
+            "descripcion": "Denegar el acceso de forma selectiva o completa a un archivo",
+            "keywords": ["denegar","archivo","proactiva","proteccion"],
+            "coste": 1,
+            "esfuerzo": 1,
+            "tiempo": 5,
+            "complejidad": 1,
+            "impacto": 2
+        },
+        {
+            "name": "COA6-Archivo falso",
+            "descripcion": "Permitir la manipulacion de un archivo falso",
+            "keywords": ["permitir","archivo","falso","proactiva","engano"],
+            "coste": 1,
+            "esfuerzo": 2,
+            "tiempo": 10,
+            "complejidad": 1,
+            "impacto": 1
+        },
+        {
+            "name": "COA7-Restringir usuario",
+            "descripcion": "Restringir la actividad de un usuario",
+            "keywords": ["restringir","usuario","proactiva","proteccion"],
+            "coste": 2,
+            "esfuerzo": 2,
+            "tiempo": 10,
+            "complejidad": 1,
+            "impacto": 2
+        },
+        {
+            "name": "COA8-Apagar host",
+            "descripcion": "Apagar el host comprometido",
+            "keywords": ["apagar","host","proteccion"],
+            "coste": 3,
+            "esfuerzo": 1,
+            "tiempo": 3,
+            "complejidad": 1,
+            "impacto": 4
+        },
+        {
+            "name": "COA9-Terminar proceso",
+            "descripcion": "Terminar el proceso sospechoso",
+            "keywords": ["terminar","proceso","proteccion"],
+            "coste": 2,
+            "esfuerzo": 1,
+            "tiempo": 3,
+            "complejidad": 1,
+            "impacto": 3
+        },
+        {
+            "name": "COA10-Bloquear peticiones",
+            "descripcion": "Bloquear peticiones al sistema sospechosas",
+            "keywords": ["bloquear","peticiones","proactiva","proteccion"],
+            "coste": 3,
+            "esfuerzo": 1,
+            "tiempo": 10,
+            "complejidad": 3,
+            "impacto": 3
+        },
+        {
+            "name": "COA11-Reglas cortafuegos",
+            "descripcion": "Agregar o borrar reglas sobre un cortafuegos",
+            "keywords": ["cortafuegos","firewall","proactiva","proteccion"],
+            "coste": 2,
+            "esfuerzo": 2,
+            "tiempo": 10,
+            "complejidad": 2,
+            "impacto": 3
+        },
+        {
+            "name": "COA12-Bloquear puertos o IP",
+            "descripcion": "Bloquear puertos o direcciones IP",
+            "keywords": ["bloquear","puerto","IP","proactiva","proteccion"],
+            "coste": 2,
+            "esfuerzo": 1,
+            "tiempo": 10,
+            "complejidad": 1,
+            "impacto": 3
+        },
+        {
+            "name": "COA13-Modificar puerto",
+            "descripcion": "Modificar o cambiar el numero de puerto",
+            "keywords": ["modificar","puerto","proactiva","proteccion"],
+            "coste": 2,
+            "esfuerzo": 1,
+            "tiempo": 10,
+            "complejidad": 1,
+            "impacto": 2
+        },
+        {
+            "name": "COA14-Bloquear conexiones",
+            "descripcion": "Bloquear conexiones de red entrantes y salientes sospechosas",
+            "keywords": ["bloquear","red","proactiva","proteccion"],
+            "coste": 2,
+            "esfuerzo": 2,
+            "tiempo": 10,
+            "complejidad": 2,
+            "impacto": 3
+        },
+        {
+            "name": "COA15-Terminar TCP",
+            "descripcion": "Terminar conexion TCP establecida por el atacante",
+            "keywords": ["terminar","TCP","proteccion"],
+            "coste": 2,
+            "esfuerzo": 2,
+            "tiempo": 7,
+            "complejidad": 2,
+            "impacto": 3
+        }
+    ]
+}
+
