@@ -2,7 +2,7 @@
     "name": "SistemaTomaDecisiones",
     "version": "1.0",
     "author": "MartaM",
-    "url": "https://github.com/aacgood/Cortex-Analyzers",
+    "url": "https://github.com/mmartamg/SistemaTomaDecisiones",
     "license": "AGPL-V3",
     "description": "Responder que devuelve los COA ",
     "dataTypeList": ["thehive:alert"],
