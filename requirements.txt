@@ -1,7 +1,3 @@
 cortexutils
 mdutils
-markdown
-weasyprint
-airium
-Markdown2PDF
 md2pdf
