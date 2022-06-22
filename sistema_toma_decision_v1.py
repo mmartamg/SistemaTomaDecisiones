@@ -2,7 +2,6 @@
 # encoding: utf-8
 
 import json
-import random
 from math import sqrt
 
 from cortexutils.responder import Responder
