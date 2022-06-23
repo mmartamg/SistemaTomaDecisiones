@@ -17,12 +17,12 @@ class TomaDecision(Responder):
         self.loccss = self.get_param('config.localizacion_css')
         self.algoritmo = self.get_param('config.algoritmo')
         self.TheHive_instance = self.get_param(
-                'config.TheHive_instance', 'http://127.0.0.1:9000')
+                'config.TheHive_instance', '')
         self.TheHive_API_key = self.get_param(
-                'config.TheHive_API_key', '7cn5nT5OhpJqEHNXzng+nQ5Tv/rTFTdn')
+                'config.TheHive_API_key', '')
         self.api = TheHiveApi(self.TheHive_instance, self.TheHive_API_key)
         self.COAjson = self.get_param(
-                'config.lista_de_COA', '/home/martam/Desktop/analyzers/Cortex-Analyzers/responders/SistemaTomaDecision/SistemaTomaDecisionv1.json')
+                'config.lista_de_COA', '')
 
     """
        funcion que compara los keywords de la alerta con los de los COAs, 
